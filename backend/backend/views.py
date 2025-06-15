@@ -1,5 +1,7 @@
+
 from rest_framework import viewsets
-from .models import User, Driver, Client
+from django.contrib.auth.models import User
+from .models import DriverProfile, ClientProfile
 from .serializers import UserSerializer, DriverSerializer, ClientSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -7,10 +9,11 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 class DriverViewSet(viewsets.ModelViewSet):
-    queryset = Driver.objects.all()
+    queryset = DriverProfile.objects.all()
     serializer_class = DriverSerializer
 
 class ClientViewSet(viewsets.ModelViewSet):
-    queryset = Client.objects.all()
+    queryset = ClientProfile.objects.all()
     serializer_class = ClientSerializer
 
+    
